@@ -53,28 +53,27 @@ To set the users name server side update your Cloud Code.
 Parse.Cloud.beforeSave(Parse.User, function(request, response) {
   var user = request.object;
 
-  if (user.isNew) {
-    if (Parse.FacebookUtils.isLinked(user)) {
-      console.log('FaceBook User Detected');
+  if (user.isNew && Parse.FacebookUtils.isLinked(user)) {
+    console.log('FaceBook User Detected');
 
-      user.set('fid', user.get('authData').facebook.id);
-      user.set('picture', 'http://graph.facebook.com/' + user.get('authData').facebook.id + '/picture?width=200&height=200');
+    user.set('fid', user.get('authData').facebook.id);
+    user.set('picture', 'http://graph.facebook.com/' + user.get('authData').facebook.id + '/picture?width=200&height=200');
 
-      Parse.Cloud.httpRequest({
-        url: 'https://graph.facebook.com/me?fields=name&access_token='+user.get('authData').facebook.access_token,
-        success: function(resp) {
-          user.set('name', resp.data.name);
-          return response.success();
-        },
-        error: function(err){
-          console.error(err);
-          return response.error(err);
-        }
-      });
-    }
+    Parse.Cloud.httpRequest({
+      url: 'https://graph.facebook.com/me?fields=name&access_token='+user.get('authData').facebook.access_token,
+      success: function(resp) {
+        user.set('name', resp.data.name);
+        return response.success();
+      },
+      error: function(err){
+        console.error(err);
+        return response.error(err);
+      }
+    });
   }
 });
 ```
+
 ## LICENSE ##
 
 The MIT License
