@@ -54,8 +54,6 @@ Parse.Cloud.beforeSave(Parse.User, function(request, response) {
   var user = request.object;
 
   if (user.isNew && Parse.FacebookUtils.isLinked(user)) {
-    console.log('FaceBook User Detected');
-
     user.set('fid', user.get('authData').facebook.id);
     user.set('picture', 'http://graph.facebook.com/' + user.get('authData').facebook.id + '/picture?width=200&height=200');
 
