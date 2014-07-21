@@ -24,7 +24,7 @@ window.iOSFaceBookLogin(function (err, session) {
 ## Adding the Plugin ##
 
 ```
-  cordova plugin add https://github.com/nickbarth/cordova.ios.contacts.git
+  cordova plugin add https://github.com/nickbarth/cordova.parse.facebook.login.git
 ```
 
 ## LICENSE ##
