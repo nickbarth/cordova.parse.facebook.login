@@ -16,7 +16,7 @@
             NSString* javaScript = [pluginResult toSuccessCallbackString:self.callbackId];
             [self writeJavascript:javaScript];
         } else if (error) {
-            NSString *result = [NSString stringWithFormat: @"{ \"error\": \"%@\" }", error];
+            NSString *result = [NSString stringWithFormat: @"{ \"error\": \"%@\" }", @"Please ensure you enable Beep in your iOS Facebook Settings"];
             CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:result];
             NSString* javaScript = [pluginResult toSuccessCallbackString:self.callbackId];
             [self writeJavascript:javaScript];
