@@ -7,7 +7,7 @@
   <description>Plugin for iOS to retrieve the FaceBookLogin.</description>
   <author>Nick Barth</author>
   <keywords>iOS FaceBookLogin</keywords>
-  <license>MIT</license>
+  <license>CC0</license>
 
   <!-- JavaScript interface -->
   <js-module src="www/iOSFaceBookLogin.js" name="iOSFaceBookLogin" target="www/iOSFaceBookLogin.js">
